@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph.xml"
+    app:startDestination="@id/appointmentManagerFragment">
+
+    <fragment
+        android:id="@+id/appointmentManagerFragment"
+        android:name="com.univalle.grupocinco.dogapp.view.fragment.HomeFragment"
+        android:label="fragment_appointment_manager"
+        >
+        <action
+            android:id="@+id/action_appointmentManagerFragment_to_addAppointmentFragment"
+            app:destination="@id/addAppointmentFragment" />
+        <action
+            android:id="@+id/action_appointmentManagerFragment_to_detailAppointmentFragment"
+            app:destination="@id/detailAppointmentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addAppointmentFragment"
+        android:name="com.univalle.grupocinco.dogapp.view.fragment.AddAppointmentFragment"
+        android:label="fragment_add_appointment"
+        />
+    <fragment
+        android:id="@+id/detailAppointmentFragment"
+        android:name="com.univalle.grupocinco.dogapp.view.fragment.AppointmentFragment"
+        android:label="fragment_detail_appointment"
+        >
+        <action
+            android:id="@+id/action_detailAppointmentFragment_to_editAppointmentFragment"
+            app:destination="@id/editAppointmentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editAppointmentFragment"
+        android:name="com.univalle.grupocinco.dogapp.view.fragment.EditAppointmentFragment"
+        android:label="fragment_edit_appointment"
+        >
+        <action
+            android:id="@+id/action_editAppointmentFragment_to_appointmentManagerFragment"
+            app:destination="@id/appointmentManagerFragment" />
+    </fragment>
+</navigation>
