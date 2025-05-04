@@ -1,58 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.LoginActivity">
+        android:background="@android:color/white"
+        tools:context=".view.fragment.AppointmentManagerFragment">
 
-        <View
-            android:id="@+id/view_background"
+        <!-- Header con fondo gris oscuro y esquina inferior izquierda curvada -->
+
+
+        <LinearLayout
+            android:id="@+id/headerLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/grey"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="150dp"
+            android:background="@drawable/rounded_bottom_left"
+            android:clipToPadding="false"
+            android:paddingStart="20dp"
+            android:paddingTop="16dp"
+            android:paddingEnd="24dp"
+            android:paddingBottom="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imageView_dog"
-            android:layout_width="220dp"
-            android:layout_height="350dp"
-            android:layout_marginTop="44dp"
-            android:src="@drawable/dog_login"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView_title"
-            android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:layout_marginTop="256dp"
-            android:fontFamily="@font/fredoka"
-            android:gravity="center"
-            android:text="@string/app_name"
-            android:textColor="@color/white"
-            android:textSize="80sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="264dp"
+                android:layout_height="71dp"
+                android:layout_gravity="left|center_vertical"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="70dp"
+                android:layout_weight="1"
+                android:text="Administrador de citas"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:ignore="RtlCompat,RtlHardcoded" />
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/animationView"
-            android:layout_width="match_parent"
-            android:layout_height="280dp"
-            android:gravity="center"
+            <ImageView
+                android:id="@+id/logoImageView"
+                android:layout_width="116dp"
+                android:layout_height="106dp"
+                android:layout_gravity="top|end"
+                android:layout_marginRight="-80dp"
+                android:layout_marginTop="-10dp"
+                android:layout_marginBottom="-1dp"
+                android:contentDescription="Dogapp logo" />
+
+            <TextView
+                android:id="@+id/logoTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="0dp"
+                android:text="DogApp"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingButton1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:fabCustomSize="50dp"
+            app:useCompatPadding="true"
+            android:contentDescription="Agregar"
+            android:src="@drawable/add"
+            android:backgroundTint="#F05861"
+            android:padding="10dp"
+            app:tint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_title"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/fingerprint"/>
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
