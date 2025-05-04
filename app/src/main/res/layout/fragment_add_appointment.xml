@@ -29,24 +29,24 @@
             app:layout_constraintVertical_bias="0.5"
             tools:ignore="MissingConstraints">
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Nueva Cita"
-                android:textColor="@android:color/white"
-                android:textSize="28dp"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/new_appointment"
+                    android:textColor="@android:color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
 
-            <ImageButton
-                android:id="@+id/btn_comeback"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="37dp"
-                android:background="@drawable/curved_toolbar"
-                android:src="@drawable/comeback_icon" />
-
+                <ImageView
+                    android:id="@+id/btn_back"
+                    android:layout_width="45dp"
+                    android:layout_height="45sp"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_marginStart="36dp"
+                    android:src="@drawable/back_icon"
+                    app:tint="@color/rose" />
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -64,7 +64,7 @@
                 android:id="@+id/nameEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nombre de la mascota"
+                android:hint="@string/hint_pet_name"
                 android:textColor="@android:color/black"
                 android:inputType="text"
                 android:maxLength="15"/>
@@ -86,14 +86,16 @@
                 android:id="@+id/razaAutoCompleteTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="55dp"
-                android:hint="Raza"
+                android:minHeight="56dp"
+                android:hint="@string/hint_breed"
                 android:inputType="text"
                 android:textColor="@android:color/black"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp" />
+
+
 
         </com.google.android.material.textfield.TextInputLayout>
 
