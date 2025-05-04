@@ -38,7 +38,7 @@ class AddAppointmentFragment : Fragment() {
             binding.razaAutoCompleteTextView.setAdapter(adapter)
         }
 
-        binding.btnComeback.setOnClickListener() {
+        binding.btnBack.setOnClickListener() {
             findNavController().popBackStack()
         }
 

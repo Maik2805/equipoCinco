@@ -29,24 +29,24 @@
             app:layout_constraintVertical_bias="0.5"
             tools:ignore="MissingConstraints">
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/new_appointment"
-                android:textColor="@android:color/white"
-                android:textSize="28dp"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/new_appointment"
+                    android:textColor="@android:color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
 
-            <ImageButton
-                android:id="@+id/btn_comeback"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="37dp"
-                android:background="@drawable/curved_toolbar"
-                android:src="@drawable/comeback_icon" />
-
+                <ImageView
+                    android:id="@+id/btn_back"
+                    android:layout_width="45dp"
+                    android:layout_height="45sp"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_marginStart="36dp"
+                    android:src="@drawable/back_icon"
+                    app:tint="@color/rose" />
 
         </androidx.appcompat.widget.Toolbar>
 
