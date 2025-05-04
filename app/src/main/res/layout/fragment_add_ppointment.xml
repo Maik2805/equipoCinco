@@ -85,7 +85,8 @@
             <AutoCompleteTextView
                 android:id="@+id/razaAutoCompleteTextView"
                 android:layout_width="match_parent"
-                android:layout_height="150px"
+                android:layout_height="wrap_content"
+                android:minHeight="55dp"
                 android:hint="Raza"
                 android:inputType="text"
                 android:textColor="@android:color/black"
@@ -169,7 +170,7 @@
 
 
             <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-                android:id="@+id/GuardarCita"
+                android:id="@+id/btn_save_appointment"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_alignParentTop="true"
@@ -178,7 +179,7 @@
                 android:backgroundTint="#F05861"
                 android:enabled="false"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/button_text_color"
                 android:text="@string/save_appointment"
                 app:icon="@drawable/save_icon"
                 app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"/>
