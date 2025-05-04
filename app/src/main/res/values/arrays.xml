@@ -1,6 +1,6 @@
 <resources>
     <string-array name="opciones">
-        <item>Seleccione un síntoma</item>
+        <item>@string/placeholder_symptom</item>
         <item>Solo duerme</item>
         <item>No come</item>
         <item>Fractura extremidad</item>
