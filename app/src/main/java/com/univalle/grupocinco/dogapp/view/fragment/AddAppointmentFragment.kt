@@ -11,20 +11,20 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.univalle.grupocinco.dogapp.R
-import com.univalle.grupocinco.dogapp.databinding.FragmentAddPpointmentBinding
+import com.univalle.grupocinco.dogapp.databinding.FragmentAddAppointmentBinding
 import com.univalle.grupocinco.dogapp.viewmodel.DogBreedsViewModel
 
 
 class AddAppointmentFragment : Fragment() {
     private lateinit var dogViewModel: DogBreedsViewModel
 
-    private lateinit var binding: FragmentAddPpointmentBinding
+    private lateinit var binding: FragmentAddAppointmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedinstancestate: Bundle?
     ): View? {
-        binding = FragmentAddPpointmentBinding.inflate(inflater)
+        binding = FragmentAddAppointmentBinding.inflate(inflater)
         return binding.root
     }
 
