@@ -9,6 +9,7 @@
         android:id="@+id/appointmentManagerFragment"
         android:name="com.univalle.grupocinco.dogapp.view.fragment.HomeFragment"
         android:label="fragment_appointment_manager"
+        tools:layout="@layout/fragment_home"
         >
         <action
             android:id="@+id/action_appointmentManagerFragment_to_addAppointmentFragment"
@@ -21,6 +22,7 @@
         android:id="@+id/addAppointmentFragment"
         android:name="com.univalle.grupocinco.dogapp.view.fragment.AddAppointmentFragment"
         android:label="fragment_add_appointment"
+        tools:layout="@layout/fragment_add_ppointment"
         />
     <fragment
         android:id="@+id/detailAppointmentFragment"

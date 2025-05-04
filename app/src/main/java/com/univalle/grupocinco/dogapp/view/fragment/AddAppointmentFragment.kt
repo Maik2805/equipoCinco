@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.univalle.grupocinco.dogapp.databinding.FragmentAddPpointmentBinding
 
 
@@ -22,7 +23,9 @@ class AddAppointmentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.btnComeback.setOnClickListener {
+            findNavController().popBackStack()
+        }
 
     }
 
