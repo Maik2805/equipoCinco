@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -76,4 +78,8 @@ dependencies {
 
     //biometric
     implementation("androidx.biometric:biometric:1.1.0")
+
+    //gooble hilt
+    implementation("com.google.dagger:hilt-android:2.56.1")
+    ksp("com.google.dagger:hilt-android-compiler:2.56.1")
 }

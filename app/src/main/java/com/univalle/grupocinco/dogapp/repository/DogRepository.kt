@@ -1,8 +1,9 @@
 package com.univalle.grupocinco.dogapp.repository
 
 import com.univalle.grupocinco.dogapp.network.DogApiService
+import jakarta.inject.Inject
 
-class DogRepository(private val apiService: DogApiService) {
+class DogRepository @Inject constructor(private val apiService: DogApiService) {
 
     suspend fun getAllBreeds(): List<String> {
         val response = apiService.getBreeds()

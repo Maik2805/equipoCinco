@@ -4,13 +4,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.univalle.grupocinco.dogapp.network.RetrofitClient
 import com.univalle.grupocinco.dogapp.repository.DogRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import jakarta.inject.Inject
 import kotlinx.coroutines.launch
 
-class DogBreedsViewModel : ViewModel() {
-
-    private val repository = DogRepository(RetrofitClient.apiService)
+@HiltViewModel
+class DogBreedsViewModel @Inject constructor(
+    private val repository: DogRepository
+) : ViewModel() {
 
     private val _breeds = MutableLiveData<List<String>>()
     val breeds: LiveData<List<String>> get() = _breeds

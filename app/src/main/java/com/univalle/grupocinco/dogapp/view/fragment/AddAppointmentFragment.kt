@@ -13,8 +13,9 @@ import com.google.android.material.snackbar.Snackbar
 import com.univalle.grupocinco.dogapp.R
 import com.univalle.grupocinco.dogapp.databinding.FragmentAddAppointmentBinding
 import com.univalle.grupocinco.dogapp.viewmodel.DogBreedsViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class AddAppointmentFragment : Fragment() {
     private lateinit var dogViewModel: DogBreedsViewModel
 
