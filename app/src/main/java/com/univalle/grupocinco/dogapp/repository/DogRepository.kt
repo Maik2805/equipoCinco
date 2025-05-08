@@ -1,9 +1,13 @@
 package com.univalle.grupocinco.dogapp.repository
 
+import com.univalle.grupocinco.dogapp.data.dao.DogAppointmentDao
+import com.univalle.grupocinco.dogapp.data.entity.DogAppointment
 import com.univalle.grupocinco.dogapp.network.DogApiService
 import jakarta.inject.Inject
 
-class DogRepository @Inject constructor(private val apiService: DogApiService) {
+class DogRepository @Inject constructor(
+    private val apiService: DogApiService,
+    private val dogAppointmentDao: DogAppointmentDao) {
 
     suspend fun getAllBreeds(): List<String> {
         val response = apiService.getBreeds()
@@ -25,5 +29,21 @@ class DogRepository @Inject constructor(private val apiService: DogApiService) {
         } else {
             throw Exception("Error en la respuesta del servidor")
         }
+    }
+
+    suspend fun insertAppointment(appointment: DogAppointment) {
+        dogAppointmentDao.insert(appointment)
+    }
+
+    suspend fun getAllAppointments(): List<DogAppointment> {
+        return dogAppointmentDao.getAll()
+    }
+
+    suspend fun deleteAppointment(appointment: DogAppointment) {
+        dogAppointmentDao.delete(appointment)
+    }
+
+    suspend fun deleteAllAppointments() {
+        dogAppointmentDao.deleteAll()
     }
 }
