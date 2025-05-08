@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.univalle.grupocinco.dogapp.data.entity.DogAppointment
 import com.univalle.grupocinco.dogapp.repository.DogRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import jakarta.inject.Inject
@@ -24,6 +25,17 @@ class DogBreedsViewModel @Inject constructor(
             } catch (e: Exception) {
                 println("Error al cargar las razas de perro: ${e.message}")
                 _breeds.value = emptyList()
+            }
+        }
+    }
+
+    fun createAppointment(appointment: DogAppointment, onSuccess: () -> Unit, onError: (Throwable) -> Unit) {
+        viewModelScope.launch {
+            try {
+                repository.insertAppointment(appointment)
+                onSuccess()
+            } catch (e: Exception) {
+                onError(e)
             }
         }
     }
