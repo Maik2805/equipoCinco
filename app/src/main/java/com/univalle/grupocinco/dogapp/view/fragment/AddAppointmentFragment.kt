@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.univalle.grupocinco.dogapp.R
+import com.univalle.grupocinco.dogapp.data.entity.DogAppointment
 import com.univalle.grupocinco.dogapp.databinding.FragmentAddAppointmentBinding
 import com.univalle.grupocinco.dogapp.viewmodel.DogBreedsViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -81,6 +82,25 @@ class AddAppointmentFragment : Fragment() {
                 ).show()
             } else {
                 //todo guardar la cita en la base de datos
+                val appointment = DogAppointment(
+                    dogName = binding.nameEditText.text.toString(),
+                    breed = binding.razaAutoCompleteTextView.text.toString(),
+                    ownerName = binding.nameOwnerEditText.text.toString(),
+                    phone = binding.telephoneEditText.text.toString().toLong(),
+                    symptom = selectedsymptom
+                )
+
+                // ✅ Llamar a createAppointment del ViewModel
+                dogViewModel.createAppointment(
+                    appointment,
+                    onSuccess = {
+                        Snackbar.make(binding.root, "Cita guardada exitosamente", Snackbar.LENGTH_SHORT).show()
+                        // Opcional: limpiar campos o navegar atrás
+                    },
+                    onError = { error ->
+                        Snackbar.make(binding.root, "Error al guardar: ${error.message}", Snackbar.LENGTH_LONG).show()
+                    }
+                )
             }
         }
     }
