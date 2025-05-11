@@ -18,6 +18,9 @@ class DogBreedsViewModel @Inject constructor(
     private val _breeds = MutableLiveData<List<String>>()
     val breeds: LiveData<List<String>> get() = _breeds
 
+    private val _listAppointment = MutableLiveData<List<DogAppointment>>()
+    val listAppointment: LiveData<List<DogAppointment>> get() = _listAppointment
+
     fun loadBreeds() {
         viewModelScope.launch {
             try {
@@ -39,4 +42,16 @@ class DogBreedsViewModel @Inject constructor(
             }
         }
     }
+
+    fun listAppointment(onSuccess: (List<DogAppointment>) -> Unit, onError: (Throwable) -> Unit) {
+        viewModelScope.launch {
+            try {
+                val appointments = repository.getAllAppointments()
+                onSuccess(appointments)
+            } catch (e: Exception) {
+                onError(e)
+            }
+        }
+    }
+
 }
