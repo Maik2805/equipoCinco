@@ -31,9 +31,11 @@ class HomeViewHolder(binding: FragmentCardBinding, navController: NavController)
 
         fun setAppointment(appointment: DogAppointment) {
 
+            println("raza: " + appointment.breed)
             bindingAppointment.petNameTextView.text = appointment.dogName
             bindingAppointment.appointmentTextView.text = "# ${appointment.id}"
             bindingAppointment.symptomDescriptionTextView?.text = appointment.symptom
+            println(appointment.breed::class.qualifiedName)
             getRandomDogImage(appointment.breed)
             bindingAppointment.itemCardView.setOnClickListener {
                 val bundle = Bundle()
@@ -49,6 +51,7 @@ class HomeViewHolder(binding: FragmentCardBinding, navController: NavController)
 
             apiImages.getRandomDogImage(breed).enqueue(object : Callback<DogResponse> {
                 override fun onResponse(call: Call<DogResponse>, response: Response<DogResponse>) {
+                    println(call)
                     if (response.isSuccessful) {
                         response.body()?.message?.let { imageUrl ->
                             Glide.with(itemView.context)
@@ -56,6 +59,8 @@ class HomeViewHolder(binding: FragmentCardBinding, navController: NavController)
                                 .into(bindingAppointment.petImageView)
                                 .clearOnDetach()
                         }
+                    } else {
+                        println("No entro")
                     }
                 }
 
