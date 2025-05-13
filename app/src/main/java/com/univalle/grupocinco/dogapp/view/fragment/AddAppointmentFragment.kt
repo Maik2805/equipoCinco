@@ -90,7 +90,6 @@ class AddAppointmentFragment : Fragment() {
                     symptom = selectedsymptom
                 )
 
-                //Llamar a createAppointment del ViewModel
                 dogViewModel.createAppointment(
                     appointment,
                     onSuccess = {
