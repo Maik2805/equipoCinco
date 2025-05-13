@@ -95,7 +95,7 @@ class AddAppointmentFragment : Fragment() {
                     appointment,
                     onSuccess = {
                         Snackbar.make(binding.root, "Cita guardada exitosamente", Snackbar.LENGTH_SHORT).show()
-                        // Opcional: limpiar campos o navegar atrás
+                        findNavController().popBackStack()
                     },
                     onError = { error ->
                         Snackbar.make(binding.root, "Error al guardar: ${error.message}", Snackbar.LENGTH_LONG).show()
