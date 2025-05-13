@@ -7,14 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.univalle.grupocinco.dogapp.R
 import com.univalle.grupocinco.dogapp.databinding.FragmentHomeBinding
+import com.univalle.grupocinco.dogapp.view.adapter.AppointmentAdapter
+import com.univalle.grupocinco.dogapp.viewmodel.DogBreedsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
+    private val appointmentViewModel: DogBreedsViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +33,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         controllers()
+        observerViewModel()
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 activity?.moveTaskToBack(true)
@@ -46,4 +52,25 @@ class HomeFragment : Fragment() {
             }
         }
     }
+
+    private fun observerViewModel(){
+        observerListAppointment()
+    }
+
+    private fun observerListAppointment(){
+        appointmentViewModel.listAppointment(
+            onSuccess = { listAppointment ->
+                val recycler = binding.recyclerview
+                val layoutManager = LinearLayoutManager(context)
+                recycler.layoutManager = layoutManager
+                val adapter = AppointmentAdapter(listAppointment.toMutableList(), findNavController())
+                recycler.adapter = adapter
+                adapter.notifyDataSetChanged()
+            },
+            onError = { error ->
+                Log.e("AppointmentError", "Error al cargar citas: ${error.message}")
+            }
+        )
+    }
+
 }
