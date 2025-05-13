@@ -26,7 +26,7 @@
         />
     <fragment
         android:id="@+id/detailAppointmentFragment"
-        android:name="com.univalle.grupocinco.dogapp.view.fragment.AppointmentFragment"
+        android:name="com.univalle.grupocinco.dogapp.view.fragment.DetailFragment"
         android:label="fragment_detail_appointment"
         >
         <action

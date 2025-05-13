@@ -54,4 +54,15 @@ class DogBreedsViewModel @Inject constructor(
         }
     }
 
+    fun deleteAppointment(appointment: DogAppointment, onSuccess: () -> Unit, onError: (Throwable) -> Unit) {
+        viewModelScope.launch {
+            try {
+                repository.deleteAppointment(appointment)
+                onSuccess()
+            } catch (e: Exception) {
+                onError(e)
+            }
+        }
+    }
+
 }
