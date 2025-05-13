@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">dogApp</string>
+    <string name="app_name">DogApp</string>
+    <string name="save_appointment">Guardar Cita</string>
+    <string name="alert_symptom_required">Selecciona un síntoma</string>
+    <string name="placeholder_symptom">Síntomas</string>
+    <string name="hint_breed">Raza</string>
+    <string name="hint_pet_name">Nombre de la mascota</string>
+    <string name="new_appointment">Nueva Cita</string>
 </resources>
