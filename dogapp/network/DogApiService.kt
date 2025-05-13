@@ -1,6 +1,7 @@
 package com.univalle.grupocinco.dogapp.network
 
 import com.univalle.grupocinco.dogapp.data.model.DogBreedsResponse
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
