@@ -17,14 +17,14 @@ class DogRepository @Inject constructor(
 
             for ((breed, subBreeds) in breedsMap) {
                 if (subBreeds.isEmpty()) {
-                    breedList.add(breed.capitalize())
+                    breedList.add(breed.replaceFirstChar { it.lowercase() })
                 } else {
                     subBreeds.forEach { subBreed ->
-                        breedList.add("${breed.capitalize()} ${subBreed.capitalize()}")
+                        breedList.add("${breed.replaceFirstChar { it.lowercase() }} ${subBreed.replaceFirstChar { it.lowercase() }}")
                     }
                 }
             }
-
+            println(breedList)
             return breedList.sorted()
         } else {
             throw Exception("Error en la respuesta del servidor")
