@@ -191,7 +191,7 @@
         <RelativeLayout
             android:id="@+id/detailsFooterLayout"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="200dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -201,7 +201,7 @@
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/deleteButton"
-                android:layout_width="45dp"
+                android:layout_width="65dp"
                 android:layout_height="45dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="10dp"
@@ -217,7 +217,7 @@
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/editButton"
-                android:layout_width="45dp"
+                android:layout_width="65dp"
                 android:layout_height="45dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
