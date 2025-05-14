@@ -32,7 +32,11 @@ class DogBreedsViewModel @Inject constructor(
         }
     }
 
-    fun createAppointment(appointment: DogAppointment, onSuccess: () -> Unit, onError: (Throwable) -> Unit) {
+    fun createAppointment(
+        appointment: DogAppointment,
+        onSuccess: () -> Unit,
+        onError: (Throwable) -> Unit
+    ) {
         viewModelScope.launch {
             try {
                 repository.insertAppointment(appointment)
@@ -63,12 +67,22 @@ class DogBreedsViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 repository.updateAppointment(appointment)
+                onSuccess()
+            } catch (e: Exception) {
+                onError(e)
+            }
+        }
+    }
 
-    fun deleteAppointment(appointment: DogAppointment, onSuccess: () -> Unit, onError: (Throwable) -> Unit) {
+    fun deleteAppointment(
+        appointment: DogAppointment,
+        onSuccess: () -> Unit,
+        onError: (Throwable) -> Unit
+    ) {
         viewModelScope.launch {
             try {
                 repository.deleteAppointment(appointment)
-                
+
                 onSuccess()
             } catch (e: Exception) {
                 onError(e)
@@ -86,7 +100,4 @@ class DogBreedsViewModel @Inject constructor(
             }
         }
     }
-
-
-
 }
