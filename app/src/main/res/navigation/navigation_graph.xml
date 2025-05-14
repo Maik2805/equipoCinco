@@ -23,7 +23,11 @@
         android:name="com.univalle.grupocinco.dogapp.view.fragment.AddAppointmentFragment"
         android:label="fragment_add_appointment"
         tools:layout="@layout/fragment_add_appointment"
-        />
+        >
+        <action
+            android:id="@+id/action_addAppointmentFragment_to_appointmentManagerFragment"
+            app:destination="@id/appointmentManagerFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailAppointmentFragment"
         android:name="com.univalle.grupocinco.dogapp.view.fragment.DetailFragment"
