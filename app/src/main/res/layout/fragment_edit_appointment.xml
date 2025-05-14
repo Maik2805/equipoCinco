@@ -8,6 +8,176 @@
         android:layout_height="match_parent"
         android:background="@android:color/white"
         tools:context=".view.fragment.AddAppointmentFragment">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/curved_toolbar"
+            android:contentInsetStart="0dp"
+            android:contentInsetLeft="10dp"
+            android:contentInsetEnd="0dp"
+            android:contentInsetRight="0dp"
+            android:outlineProvider="none"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:layout_constraintBottom_toTopOf="@+id/nameInputLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Editar Cita"
+                android:textColor="@android:color/white"
+                android:textSize="28dp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="50dp"
+                android:background="@drawable/returnbtn"
+                android:contentDescription="Return"/>
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="40dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre de la mascota"
+                android:textColor="@android:color/black"
+                android:inputType="text"
+                android:maxLength="15"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/razaInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="120dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/razaAutoCompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="150px"
+                android:hint="Raza"
+                android:inputType="text"
+                android:textColor="@android:color/black"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameOwnerInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="200dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameOwnerEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre del propietario"
+                android:textColor="@android:color/black"
+                android:inputType="text"
+                android:maxLength="30"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/telephoneInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="280dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/telephoneEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Teléfono"
+                android:textColor="@android:color/black"
+                android:inputType="number"
+                android:maxLength="10"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/sintomasSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="360dp">
+
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <RelativeLayout
+            android:id="@+id/btnEditCita"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/btnEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#F05861"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:text="Editar Cita"
+                app:icon="@drawable/edit"
+                app:iconPadding="6dp"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"/>
+
+        </RelativeLayout>
 
 
         <androidx.appcompat.widget.Toolbar
