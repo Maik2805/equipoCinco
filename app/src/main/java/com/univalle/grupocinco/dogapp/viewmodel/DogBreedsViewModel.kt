@@ -65,4 +65,17 @@ class DogBreedsViewModel @Inject constructor(
         }
     }
 
+    fun getBreedImage(breed: String, onSuccess: (String?) -> Unit, onError: (Throwable) -> Unit) {
+        viewModelScope.launch {
+            try {
+                val image = repository.getBreedImage(breed)
+                onSuccess(image)
+            } catch (e: Exception) {
+                onError(e)
+            }
+        }
+    }
+
+
+
 }
