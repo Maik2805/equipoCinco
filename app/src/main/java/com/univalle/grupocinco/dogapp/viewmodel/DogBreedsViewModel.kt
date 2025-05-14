@@ -54,4 +54,20 @@ class DogBreedsViewModel @Inject constructor(
         }
     }
 
+    fun updateAppointment(
+        appointment: DogAppointment,
+        onSuccess: () -> Unit,
+        onError: (Throwable) -> Unit
+    ) {
+        viewModelScope.launch {
+            try {
+                repository.updateAppointment(appointment)
+                onSuccess()
+            } catch (e: Exception) {
+                onError(e)
+            }
+        }
+    }
+
+
 }

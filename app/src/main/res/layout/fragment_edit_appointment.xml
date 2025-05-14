@@ -143,7 +143,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <RelativeLayout
-            android:id="@+id/btnEditarCita"
+            android:id="@+id/btn_edit_appointment_container"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             app:layout_constraintBottom_toBottomOf="parent">

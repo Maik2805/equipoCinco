@@ -21,4 +21,11 @@ interface DogAppointmentDao {
 
     @Query("DELETE FROM dog_appointments")
     suspend fun deleteAll()
+
+    @Query("SELECT * FROM dog_appointments WHERE id = :appointmentId LIMIT 1")
+    suspend fun getById(appointmentId: Int): DogAppointment?
+
+    @androidx.room.Update
+    suspend fun updateAppointment(appointment: DogAppointment)
+
 }

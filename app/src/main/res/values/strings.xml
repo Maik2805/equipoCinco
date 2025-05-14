@@ -6,5 +6,5 @@
     <string name="hint_breed">Raza</string>
     <string name="hint_pet_name">Nombre de la mascota</string>
     <string name="new_appointment">Nueva Cita</string>
-    <string name="edit_appointment">Editar CIta</string>
+    <string name="edit_appointment">Editar Cita</string>
 </resources>
