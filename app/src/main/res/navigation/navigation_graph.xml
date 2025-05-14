@@ -40,8 +40,12 @@
     <fragment
         android:id="@+id/editAppointmentFragment"
         android:name="com.univalle.grupocinco.dogapp.view.fragment.EditAppointmentFragment"
-        android:label="fragment_edit_appointment"
-        >
+        android:label="fragment_edit_appointment">
+
+        <argument
+            android:name="appointment"
+            app:argType="com.univalle.grupocinco.dogapp.data.entity.DogAppointment" />
+
         <action
             android:id="@+id/action_editAppointmentFragment_to_appointmentManagerFragment"
             app:destination="@id/appointmentManagerFragment" />

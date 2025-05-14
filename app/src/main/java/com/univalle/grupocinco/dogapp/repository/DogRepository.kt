@@ -72,4 +72,10 @@ class DogRepository @Inject constructor(
     suspend fun deleteAllAppointments() {
         dogAppointmentDao.deleteAll()
     }
+
+    suspend fun updateAppointment(appointment: DogAppointment) {
+        dogAppointmentDao.updateAppointment(appointment)
+    }
+
 }
+

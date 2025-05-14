@@ -22,6 +22,7 @@ import jakarta.inject.Inject
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private val appointmentViewModel: DogBreedsViewModel by viewModels()
+
     @Inject lateinit var dogRepository: DogRepository
 
     override fun onCreateView(

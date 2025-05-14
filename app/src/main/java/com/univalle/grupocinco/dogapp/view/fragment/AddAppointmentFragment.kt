@@ -90,10 +90,15 @@ class AddAppointmentFragment : Fragment() {
                     symptom = selectedsymptom
                 )
 
+                // ✅ Llamar a createAppointment del ViewModel
+
                 dogViewModel.createAppointment(
                     appointment,
                     onSuccess = {
                         Snackbar.make(binding.root, "Cita guardada exitosamente", Snackbar.LENGTH_SHORT).show()
+
+                        // Opcional: limpiar campos o navegar atrás
+                        
                         findNavController().navigate(R.id.action_addAppointmentFragment_to_appointmentManagerFragment)
                     },
                     onError = { error ->
