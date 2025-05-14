@@ -44,7 +44,8 @@
 
         <argument
             android:name="appointment"
-            app:argType="com.univalle.grupocinco.dogapp.data.entity.DogAppointment" />
+            app:argType="com.univalle.grupocinco.dogapp.data.entity.DogAppointment"
+            app:nullable="false"/>
 
         <action
             android:id="@+id/action_editAppointmentFragment_to_appointmentManagerFragment"

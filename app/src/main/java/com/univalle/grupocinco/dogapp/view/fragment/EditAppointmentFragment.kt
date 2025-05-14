@@ -9,9 +9,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
-import com.univalle.grupocinco.dogapp.R
 import com.univalle.grupocinco.dogapp.data.entity.DogAppointment
 import com.univalle.grupocinco.dogapp.databinding.FragmentEditAppointmentBinding
 import com.univalle.grupocinco.dogapp.viewmodel.DogBreedsViewModel
@@ -22,9 +20,6 @@ class EditAppointmentFragment : Fragment() {
 
     private lateinit var binding: FragmentEditAppointmentBinding
     private lateinit var dogViewModel: DogBreedsViewModel
-
-    // SafeArgs para recibir la cita a editar
-    private val args: EditAppointmentFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,6 +34,13 @@ class EditAppointmentFragment : Fragment() {
 
         dogViewModel = ViewModelProvider(this)[DogBreedsViewModel::class.java]
 
+        val appointment = arguments?.getSerializable("appointmentData") as? DogAppointment
+        if (appointment == null) {
+            Snackbar.make(binding.root, "Error: cita no encontrada", Snackbar.LENGTH_LONG).show()
+            findNavController().popBackStack()
+            return
+        }
+
         // Cargar razas desde el ViewModel
         dogViewModel.loadBreeds()
         dogViewModel.breeds.observe(viewLifecycleOwner) { breeds ->
@@ -46,15 +48,14 @@ class EditAppointmentFragment : Fragment() {
             binding.razaAutoCompleteTextView.setAdapter(adapter)
         }
 
-        // Mostrar los datos existentes en el formulario
-        val appointment = args.appointment
+        // Mostrar los datos de la cita
         binding.nameEditText.setText(appointment.dogName)
         binding.razaAutoCompleteTextView.setText(appointment.breed, false)
         binding.nameOwnerEditText.setText(appointment.ownerName)
         binding.telephoneEditText.setText(appointment.phone.toString())
 
         // Botón de volver
-        binding.btnBack.setOnClickListener {
+        binding.imageButton.setOnClickListener {
             findNavController().popBackStack()
         }
 
@@ -102,5 +103,3 @@ class EditAppointmentFragment : Fragment() {
         }
     }
 }
-
-
