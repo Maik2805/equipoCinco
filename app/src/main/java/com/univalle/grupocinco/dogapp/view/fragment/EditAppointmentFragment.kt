@@ -14,6 +14,7 @@ import com.univalle.grupocinco.dogapp.data.entity.DogAppointment
 import com.univalle.grupocinco.dogapp.databinding.FragmentEditAppointmentBinding
 import com.univalle.grupocinco.dogapp.viewmodel.DogBreedsViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import com.univalle.grupocinco.dogapp.R
 
 @AndroidEntryPoint
 class EditAppointmentFragment : Fragment() {
@@ -94,7 +95,7 @@ class EditAppointmentFragment : Fragment() {
                 updatedAppointment,
                 onSuccess = {
                     Snackbar.make(binding.root, "Cita actualizada correctamente", Snackbar.LENGTH_SHORT).show()
-                    findNavController().popBackStack()
+                    findNavController().navigate(R.id.action_editAppointmentFragment_to_appointmentManagerFragment)
                 },
                 onError = { error ->
                     Snackbar.make(binding.root, "Error al actualizar: ${error.message}", Snackbar.LENGTH_LONG).show()
