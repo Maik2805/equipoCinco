@@ -1,5 +1,5 @@
 [versions]
-agp = "8.8.0"
+agp = "8.10.0"
 airbnbLottieCompose = "6.0.0"
 kotlin = "2.0.0"
 coreKtx = "1.16.0"
@@ -38,5 +38,6 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version = "2.0.0-1.0.24" }
 hilt = { id = "com.google.dagger.hilt.android", version = "2.56.2" }
+navigation-safe-args = { id = "androidx.navigation.safeargs.kotlin", version = "2.9.0" }
 
 

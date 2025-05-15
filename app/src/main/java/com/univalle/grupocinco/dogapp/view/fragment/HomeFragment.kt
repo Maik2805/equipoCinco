@@ -12,14 +12,18 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.univalle.grupocinco.dogapp.R
 import com.univalle.grupocinco.dogapp.databinding.FragmentHomeBinding
+import com.univalle.grupocinco.dogapp.repository.DogRepository
 import com.univalle.grupocinco.dogapp.view.adapter.AppointmentAdapter
 import com.univalle.grupocinco.dogapp.viewmodel.DogBreedsViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import jakarta.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private val appointmentViewModel: DogBreedsViewModel by viewModels()
+
+    @Inject lateinit var dogRepository: DogRepository
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -63,7 +67,7 @@ class HomeFragment : Fragment() {
                 val recycler = binding.recyclerview
                 val layoutManager = LinearLayoutManager(context)
                 recycler.layoutManager = layoutManager
-                val adapter = AppointmentAdapter(listAppointment.toMutableList(), findNavController())
+                val adapter = AppointmentAdapter(listAppointment.toMutableList(), findNavController(), dogRepository)
                 recycler.adapter = adapter
                 adapter.notifyDataSetChanged()
             },

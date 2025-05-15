@@ -7,7 +7,8 @@ import jakarta.inject.Inject
 
 class DogRepository @Inject constructor(
     private val apiService: DogApiService,
-    private val dogAppointmentDao: DogAppointmentDao) {
+    private val dogAppointmentDao: DogAppointmentDao
+) {
 
     suspend fun getAllBreeds(): List<String> {
         val response = apiService.getBreeds()
@@ -31,6 +32,31 @@ class DogRepository @Inject constructor(
         }
     }
 
+    suspend fun getBreedImage(breed: String): String? {
+        try {
+            val (mainBreed, subBreed) = parseBreedComponents(breed)
+
+            val response = subBreed?.let {
+                apiService.getRandomDogImageByBreedAndSubBreed(mainBreed, subBreed)
+            } ?: apiService.getRandomDogImageByBreed(mainBreed)
+
+            return response.body()?.message ?: throw Exception("Error al consumir api")
+
+        }  catch (e: Exception) {
+            println("No se pudo bucar la imagen")
+            e.printStackTrace()
+        }
+        return null
+    }
+
+    private fun parseBreedComponents(breed: String): Pair<String, String?> {
+        val breedParts = breed.split(" ")
+        return when (breedParts.size) {
+            1 -> breedParts[0] to null
+            else -> breedParts[0] to breedParts[1]
+        }
+    }
+
     suspend fun insertAppointment(appointment: DogAppointment) {
         dogAppointmentDao.insert(appointment)
     }
@@ -46,4 +72,10 @@ class DogRepository @Inject constructor(
     suspend fun deleteAllAppointments() {
         dogAppointmentDao.deleteAll()
     }
+
+    suspend fun updateAppointment(appointment: DogAppointment) {
+        dogAppointmentDao.updateAppointment(appointment)
+    }
+
 }
+

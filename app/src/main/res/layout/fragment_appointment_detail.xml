@@ -11,7 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
+        android:background="@color/whitepink"
         tools:context=".view.fragment.AppointmentManagerFragment">
 
 
@@ -46,7 +46,9 @@
                 android:text="CHANDI"
                 android:textColor="@color/white"
                 android:textSize="30sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+
+                />
 
         </RelativeLayout>
 
@@ -162,6 +164,7 @@
 
 
         <androidx.cardview.widget.CardView
+            android:layout_marginTop="20dp"
             android:id="@+id/petBreedImageContainer"
             android:layout_width="200dp"
             android:layout_height="200dp"
@@ -169,11 +172,11 @@
             android:elevation="8dp"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="10dp"
-            app:layout_constraintBottom_toBottomOf="@+id/petInfoLayout"
+            app:layout_constraintBottom_toTopOf="@+id/detailsFooterLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detailsHeaderLayout"
+            app:layout_constraintTop_toTopOf="@+id/detailsHeaderLayout"
             app:layout_constraintVertical_bias="0.282"
             tools:ignore="MissingConstraints">
 
@@ -191,17 +194,17 @@
         <RelativeLayout
             android:id="@+id/detailsFooterLayout"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="200dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="MissingConstraints">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/deleteButton"
-                android:layout_width="45dp"
+                android:layout_width="85dp"
                 android:layout_height="45dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="10dp"
@@ -217,7 +220,7 @@
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/editButton"
-                android:layout_width="45dp"
+                android:layout_width="85dp"
                 android:layout_height="45dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"

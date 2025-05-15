@@ -32,7 +32,11 @@ class DogBreedsViewModel @Inject constructor(
         }
     }
 
-    fun createAppointment(appointment: DogAppointment, onSuccess: () -> Unit, onError: (Throwable) -> Unit) {
+    fun createAppointment(
+        appointment: DogAppointment,
+        onSuccess: () -> Unit,
+        onError: (Throwable) -> Unit
+    ) {
         viewModelScope.launch {
             try {
                 repository.insertAppointment(appointment)
@@ -54,4 +58,46 @@ class DogBreedsViewModel @Inject constructor(
         }
     }
 
+
+    fun updateAppointment(
+        appointment: DogAppointment,
+        onSuccess: () -> Unit,
+        onError: (Throwable) -> Unit
+    ) {
+        viewModelScope.launch {
+            try {
+                repository.updateAppointment(appointment)
+                onSuccess()
+            } catch (e: Exception) {
+                onError(e)
+            }
+        }
+    }
+
+    fun deleteAppointment(
+        appointment: DogAppointment,
+        onSuccess: () -> Unit,
+        onError: (Throwable) -> Unit
+    ) {
+        viewModelScope.launch {
+            try {
+                repository.deleteAppointment(appointment)
+
+                onSuccess()
+            } catch (e: Exception) {
+                onError(e)
+            }
+        }
+    }
+
+    fun getBreedImage(breed: String, onSuccess: (String?) -> Unit, onError: (Throwable) -> Unit) {
+        viewModelScope.launch {
+            try {
+                val image = repository.getBreedImage(breed)
+                onSuccess(image)
+            } catch (e: Exception) {
+                onError(e)
+            }
+        }
+    }
 }
