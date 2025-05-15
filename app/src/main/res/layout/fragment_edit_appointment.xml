@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Editar Cita"
+                android:text="@string/edit"
                 android:textColor="@android:color/white"
                 android:textSize="28dp"
                 android:textStyle="bold" />
@@ -64,7 +64,7 @@
                 android:id="@+id/nameEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nombre de la mascota"
+                android:hint="@string/hint_pet_name"
                 android:textColor="@android:color/black"
                 android:inputType="text"
                 android:maxLength="15"/>
@@ -76,17 +76,17 @@
             android:id="@+id/razaInputLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintTop_toBottomOf="@id/nameInputLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="120dp">
+            android:layout_marginTop="16dp">
 
             <AutoCompleteTextView
                 android:id="@+id/razaAutoCompleteTextView"
                 android:layout_width="match_parent"
                 android:layout_height="150px"
-                android:hint="Raza"
+                android:hint="@string/hint_breed"
                 android:inputType="text"
                 android:textColor="@android:color/black"
                 android:paddingLeft="16dp"
@@ -101,17 +101,17 @@
             android:id="@+id/nameOwnerInputLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintTop_toBottomOf="@id/razaInputLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="200dp">
+            android:layout_marginTop="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/nameOwnerEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nombre del propietario"
+                android:hint="@string/hint_name_owner"
                 android:textColor="@android:color/black"
                 android:inputType="text"
                 android:maxLength="30"/>
@@ -122,17 +122,17 @@
             android:id="@+id/telephoneInputLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintTop_toBottomOf="@id/nameOwnerInputLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="280dp">
+            android:layout_marginTop="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/telephoneEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Teléfono"
+                android:hint="@string/hint_telephone"
                 android:textColor="@android:color/black"
                 android:inputType="number"
                 android:maxLength="10"/>
@@ -158,7 +158,7 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"
-                android:text="Editar Cita"
+                android:text="@string/edit"
                 app:icon="@drawable/edit"
                 app:iconPadding="6dp"
                 app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"/>
