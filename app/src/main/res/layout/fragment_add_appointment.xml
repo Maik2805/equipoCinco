@@ -29,6 +29,15 @@
             app:layout_constraintVertical_bias="0.5"
             tools:ignore="MissingConstraints">
 
+                <ImageButton
+                    android:id="@+id/backButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="50dp"
+                    android:background="@drawable/returnbtn"
+                    android:contentDescription="return"/>
+
                 <TextView
                     android:id="@+id/title"
                     android:layout_width="wrap_content"
@@ -38,15 +47,6 @@
                     android:textColor="@android:color/white"
                     android:textSize="30sp"
                     android:textStyle="bold" />
-
-                <ImageView
-                    android:id="@+id/btn_back"
-                    android:layout_width="45dp"
-                    android:layout_height="45sp"
-                    android:layout_gravity="start|center_vertical"
-                    android:layout_marginStart="36dp"
-                    android:src="@drawable/back_icon"
-                    app:tint="@color/rose" />
 
         </androidx.appcompat.widget.Toolbar>
 
