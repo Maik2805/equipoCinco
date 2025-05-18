@@ -40,7 +40,7 @@ class AddAppointmentFragment : Fragment() {
             binding.razaAutoCompleteTextView.setAdapter(adapter)
         }
 
-        binding.btnBack.setOnClickListener() {
+        binding.backButton.setOnClickListener {
             findNavController().popBackStack()
         }
 

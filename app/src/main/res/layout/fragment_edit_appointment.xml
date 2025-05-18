@@ -85,7 +85,8 @@
             <AutoCompleteTextView
                 android:id="@+id/razaAutoCompleteTextView"
                 android:layout_width="match_parent"
-                android:layout_height="150px"
+                android:layout_height="wrap_content"
+                android:minHeight="56dp"
                 android:hint="@string/hint_breed"
                 android:inputType="text"
                 android:textColor="@android:color/black"
